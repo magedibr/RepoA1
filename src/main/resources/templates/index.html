@@ -14,7 +14,7 @@
 
 
 
- <form method="post" action="#" th:action="@{/}" th:object="${pollStat}">
+ <form method="post" action="#" th:action="@{/addQuestion}" th:object="${pollStat}">
   
   Title<input type="text" th:field=${pollStat.title}>
 <br><br>
@@ -22,6 +22,11 @@
 Questions  <select th:field="*{question}">   
    <option th:each="question: *{questions}" th:value="${question}" th:text="${question}" />   
    </select><br> 
+   
+   
+   <input type="submit" value="Choose Poll"/>
+   
+   
 </form>
 
 

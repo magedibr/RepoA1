@@ -39,7 +39,7 @@ public class PollStatController {
 		
 		
 		
-		return "index";
+		return "poll";
 		
 	}	
 }
