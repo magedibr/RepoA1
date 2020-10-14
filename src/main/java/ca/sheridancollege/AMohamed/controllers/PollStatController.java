@@ -21,10 +21,8 @@ public class PollStatController {
 	@GetMapping("/")
 	public String index(Model model) {
 		
-	//PollStat pollStat = new PollStat();
-		//pollStat.setTitle("hello");
-		
-		//model.addAttribute("pol", attributeValue)
+
+	
 		model.addAttribute("pollStat",new PollStat());
 		model.addAttribute("statList", statList);
 		

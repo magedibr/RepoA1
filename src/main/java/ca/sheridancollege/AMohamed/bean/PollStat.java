@@ -28,13 +28,13 @@ private final String[] questions = {"What is your favourite Candy","What is your
 
 private Long id; 
 private String title; 
-/* private String  answer1; 
+ private String  answer1; 
 private String answer2; 
 private String answer3; 
 private int votes1; 
 private int votes2; 
 private int votes3;
 private String question;
-*/
+
 }	
 	
