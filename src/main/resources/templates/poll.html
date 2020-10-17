@@ -9,8 +9,47 @@
 
 
 <div th:text="${pollStat.question}">
-error
 </div>
+
+
+
+
+Please chose an answer:
+
+<div th:object="${pollStat}"   th:if="${pollStat.question}=='What is your favourite Candy?'">
+
+
+
+<p>hello</p>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+no
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
