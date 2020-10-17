@@ -21,7 +21,7 @@ public class PollStat implements Serializable {
 
 
 
-private final String[] questions = {"What is your favourite Candy?","What is your favourite Sport?","What is your favourite Color","Whats your faviroute seaon"};
+private final String[] questions = {"What is your favourite Candy?","What is your favourite Sport?","What is your favourite Color?","What is your favourite season?"};
 	
 
 

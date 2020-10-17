@@ -16,56 +16,31 @@
 
 Please chose an answer:
 
-<div th:object="${pollStat}"   th:if="${pollStat.question}=='What is your favourite Candy?'">
+<div th:object="${pollStat}"   th:if="${pollStat.question}== 'What is your favourite Candy?'">
 
-
-
-<p>hello</p>
-
-
-
-
-
-
+Candy form
 
 </div>
 
 
+<div th:object="${pollStat}"   th:if="${pollStat.question}== 'What is your favourite Sport?'">
+
+Sport form
+
+</div>
 
 
+<div th:object="${pollStat}"   th:if="${pollStat.question}== 'What is your favourite Color?'">
 
+Color form
 
-no
+</div>
 
+<div th:object="${pollStat}"   th:if="${pollStat.question}== 'What is your favourite season?'">
 
+Season form
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-hello
-
-
-
-
-
-
-
-
-
-
-
-
+</div>
 
 
 
