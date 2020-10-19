@@ -47,7 +47,6 @@ public class PollStatController {
 		model.addAttribute("pollStat",pollStat);
 
 
-
 		return "poll";
 	}
 
@@ -62,9 +61,9 @@ public class PollStatController {
 		String answ = pollStat.getCandy();	
 		
 
-		if(answ.equalsIgnoreCase("Chocolate")) {System.out.println("Choco");} 
-		if(answ.equalsIgnoreCase("Taffy"))     {System.out.println("Taffy");} 	
-		if(answ.equalsIgnoreCase("Carmel")) {System.out.println("Carmel");} 	    
+		if(answ.equalsIgnoreCase("Chocolate")) { da.insertV(1, 0, 0);} 
+		if(answ.equalsIgnoreCase("Taffy"))     {da.insertV(0,1,0);} 	
+		if(answ.equalsIgnoreCase("Carmel")) {da.insertV(0, 0, 1);} 	    
 
 
 

@@ -26,7 +26,7 @@ public class PollStat implements Serializable {
 
 
 
-	private int votes1; 
+	private String votes1; //trying to turn it from an int to string for the inser
 	private int votes2; 
 	private int votes3;
 	private String question;
@@ -36,7 +36,7 @@ public class PollStat implements Serializable {
 
 
 
-	private final int [] votes= {votes1,votes2,votes3};
+	//private final int [] votes= {votes1,votes2,votes3};
 
 
 
