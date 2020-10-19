@@ -15,22 +15,18 @@ Chosen Poll:<br>
 
 
 Please chose an answer:
-<!-- Do i need the object here for this to work? -->
-<div  th:if="${pollStat.question} == 'What is your favourite Candy?'">
 
-:::
-  
-<form th:object="${pollStat}">
+<div th:object="${pollStat}" th:if="${pollStat.question} == 'What is your favourite Candy?'">
 
-  <select th:field="*{candy}">   
-   <option th:each="question: *{candys}" th:value="${candy}" th:text=${candy} />   
+<form method="post" action="#" th:action="@{/getAnswer}">
+<select th:field="*{candy}">   
+   <option th:each="candy: *{candys}" th:value="${candy}" th:text="${candy}" />   
    </select><br> 
+   
+<input type="submit" value="candyAns" />
 
 
-        <input type="submit" value="Choose Poll"/>
-  </form>
-
-
+</form>
 
 
 
