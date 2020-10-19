@@ -4,8 +4,22 @@
 <meta charset="UTF-8">
 <title>index Page</title>
 </head>
+
 <body>
 
-results page
+
+
+<br><br><br>
+
+<table th:if="${pollList != null AND pollList != ''}">
+<tr th:each="s: ${pollList}">
+<td th:text="${s.votes1}">
+
+</td>
+
+</tr>
+
+</table>
+
 </body>
 </html>

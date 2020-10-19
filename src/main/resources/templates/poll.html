@@ -10,11 +10,16 @@ Chosen Poll:<br>
 
 <div th:text="${pollStat.question}">
 </div>
-
-
+<!-- Candy -->
+<br>
 Title :Candy Poll
 <br>
 Please chose an answer:
+
+
+
+
+<!----------------------------------------- Candy  ------------------------------------------>
 
 <div th:object="${pollStat}" th:if="${pollStat.question} == 'What is your favourite Candy?'">
 
@@ -22,31 +27,43 @@ Please chose an answer:
 <select th:field="*{candy}">   
    <option th:each="candy: *{candys}" th:value="${candy}" th:text="${candy}" />   
    </select><br> 
-   
 <input type="submit" value="candyAns" />
-
-
 </form>
-
-
-
 
 </div>
 
-Title 
+<!----------------------------------------- Sport   ------------------------------------------>
+
+Color Poll:
 <div th:object="${pollStat}"   th:if="${pollStat.question}== 'What is your favourite Sport?'">
 
 Title: Sports Poll<br>
 
+<form method="post" action="#" th:action="@{/getAnswer}">
+<select th:field="*{sport}">   
+   <option th:each="sport: *{sports}" th:value="${sport}" th:text="${sport}" />   
+   </select><br> 
+
+<input type="submit" value="Submit" />
+
+</form>
 </div>
 
+<!----------------------------------------- Color  ------------------------------------------>
 
 <div th:object="${pollStat}"   th:if="${pollStat.question}== 'What is your favourite Color?'">
 
-Color Poll:
+
+<form method="post" action="#" th:action="@{/getAnswer}">
+<select th:field="*{color}">   
+   <option th:each="color: *{colors}" th:value="${color}" th:text="${color}" />   
+   </select><br> 
+   
+<input type="submit" value="Submit" />
+
+</form>
+
 </div>
-
-
 
 
 
