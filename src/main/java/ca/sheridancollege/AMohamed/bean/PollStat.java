@@ -19,7 +19,7 @@ public class PollStat implements Serializable {
 
 
 
-    private final String[] candys= {"Chocolate","Taffy","Candy","dsadasd"};
+    private final String[] candys= {"Chocolate","Taffy","Carmel"};
 	private final String[] questions = {"What is your favourite Candy?","What is your favourite Sport?","What is your favourite Color?"};
 	
 	private String title; 
