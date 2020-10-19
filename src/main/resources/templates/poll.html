@@ -6,7 +6,7 @@
 </head>
 <body>
 
-
+Chosen Poll:<br>
 
 <div th:text="${pollStat.question}">
 </div>
@@ -15,10 +15,25 @@
 
 
 Please chose an answer:
+<!-- Do i need the object here for this to work? -->
+<div  th:if="${pollStat.question} == 'What is your favourite Candy?'">
 
-<div th:object="${pollStat}"   th:if="${pollStat.question}== 'What is your favourite Candy?'">
+:::
+  
+<form th:object="${pollStat}">
 
-Candy form
+  <select th:field="*{candy}">   
+   <option th:each="question: *{candys}" th:value="${candy}" th:text=${candy} />   
+   </select><br> 
+
+
+        <input type="submit" value="Choose Poll"/>
+  </form>
+
+
+
+
+
 
 </div>
 
@@ -33,12 +48,6 @@ Sport form
 <div th:object="${pollStat}"   th:if="${pollStat.question}== 'What is your favourite Color?'">
 
 Color form
-
-</div>
-
-<div th:object="${pollStat}"   th:if="${pollStat.question}== 'What is your favourite season?'">
-
-Season form
 
 </div>
 

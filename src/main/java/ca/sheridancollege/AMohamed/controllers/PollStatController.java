@@ -31,15 +31,45 @@ public class PollStatController {
 	}
 	@PostMapping("/addQuestion")
 	public String questionChoice(Model model,@ModelAttribute PollStat pollStat) {
+	
 		System.out.println("Got here");
 	
+		
+		// model.addAttribute("pollStat",new PollStat());	
+		
 		statList.add(pollStat);
 		model.addAttribute("statList", statList);
 		model.addAttribute("pollStat",pollStat);
-		
+       
 		
 		
 		return "poll";
+	}
+	
+	
+	@PostMapping("/getAnswer")
+	public String answerChoice(Model model,@ModelAttribute PollStat pollStat) {
 		
-	}	
+		statList.add(pollStat);
+		//model.addAttribute(" ", attributeValue);
+		
+		
+		
+		
+		
+		
+		
+		return "sa";
+		
+	}
+	
+
+
 }
+
+		
+
+	
+	
+	
+	

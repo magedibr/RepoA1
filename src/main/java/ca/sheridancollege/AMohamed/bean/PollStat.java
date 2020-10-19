@@ -9,32 +9,39 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class PollStat implements Serializable {
 
- 
-
-
-
 /**
 	 * 
 	 */
-	private static final long serialVersionUID = -9093531335512259796L;
+	private static final long serialVersionUID = 8552824020060361359L;
 
 
 
 
-private final String[] questions = {"What is your favourite Candy?","What is your favourite Sport?","What is your favourite Color?","What is your favourite season?"};
+
+
+private final String[] candys= {"Chocolate","Taffy","Candy","dsadasd"};
+
+
+
+	private final String[] questions = {"What is your favourite Candy?","What is your favourite Sport?","What is your favourite Color?"};
 	
+	private String title; 
 
 
 
-private Long id; 
-private String title; 
- private String  answer1; 
-private String answer2; 
-private String answer3; 
-private int votes1; 
-private int votes2; 
-private int votes3;
-private String question;
+	private int votes1; 
+	private int votes2; 
+	private int votes3;
+	private String question;
+	private String candy;
+
+
+
+
+
+	private final int [] votes= {votes1,votes2,votes3};
+
+
+
 
 }	
-	
