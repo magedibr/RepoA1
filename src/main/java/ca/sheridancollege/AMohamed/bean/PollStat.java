@@ -27,9 +27,7 @@ public class PollStat implements Serializable {
 
 //int or string for votes
 	private int  votes1; 
-	
-	
-	
+private String qqq;	
 	private int votes2; 
 	private int votes3;
 	private String question;

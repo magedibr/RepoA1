@@ -2,16 +2,12 @@ package ca.sheridancollege.AMohamed.controllers;
 
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
-import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-
 import ca.sheridancollege.AMohamed.bean.PollStat;
 import ca.sheridancollege.AMohamed.database.DatabaseAccess;
 
@@ -42,10 +38,7 @@ public class PollStatController {
 	
 	@PostMapping("/addQuestion")
 	public String questionChoice(Model model,@ModelAttribute PollStat pollStat) {
-
 		
-		System.out.println("Got here");
-
 		model.addAttribute("pollStat",pollStat);
 	
 		model.addAttribute("pollList", da.getStatList());  
@@ -70,20 +63,14 @@ public class PollStatController {
 			if(CandyAns.equalsIgnoreCase("Chocolate")) {
 			
 			   	da.insertV(1, 0, 0,"What is your favourite Candy?",pollStat);
-			
-			//    pollList.add(pollStat);
                  model.addAttribute("pollList",da.getStatList());
-			
-		      //model.addAttribute("pollStat",new PollStat());
 			} 
-			
-			
 			
 			if(CandyAns.equalsIgnoreCase("Taffy"))     {da.insertV(0,1,0,"What is your favourite Candy?",pollStat);
 														} 	
 			if(CandyAns.equalsIgnoreCase("Carmel"))    {da.insertV(0, 0, 1,"What is your favourite Candy?",pollStat);} 
 					
-		//	pollList.add(pollStat);
+		
 		}else if(pollStat.getSport()!= null) {
 
 			String SportAns = pollStat.getSport();
@@ -101,37 +88,83 @@ public class PollStatController {
 			if(ColAns.equalsIgnoreCase("Green"))     {da.insertV(0,1,0,"What is your favourite Color?",pollStat);} 	
 			if(ColAns.equalsIgnoreCase("Blue")) {da.insertV(0, 0, 1,"What is your favourite Color?",pollStat);} 	
 
-		}else System.out.println("Non were chosen");
+		}
+		 pollStat.setQuestion("trial"); 
+     //    model.addAttribute("pollStat",pollStat);
+		 String[] Qs ={"What is your favourite Candy?","What is your favourite Sport?","What is your favourite Color?"};   
+         int vote1=0;
+         
+		      for(PollStat i : da.getStatList()) {
 
+				
+				if(i.getQuestion().equalsIgnoreCase(Qs[0])&&i.getVotes1()==1) {
+					
+					
+			    
+					
+				    pollStat.setVote(++vote1);
+				    pollStat.setQuestion("Sdad");
+					//model.addAttribute("pollStat",pollStat);
+					
+				}
+			     
+				}
+         
+         
+         
+         
+ 	
+		
 	
-		return result(model,pollStat);
+		return "results";
 
 	}
 
 
+
+public String result(Model model,@ModelAttribute PollStat pollStat ) {
 	
-@GetMapping("/results")
-public String result(Model model,@ModelAttribute PollStat pollStat) {
+	int vote1=0;
+	int vote2=0;
+	int vote3=0;
+    String[] Qs ={"What is your favourite Candy?","What is your favourite Sport?","What is your favourite Color?"};   
 	
+//	model.addAttribute("pollStat",new PollStat());
 	model.addAttribute("pollList",da.getStatList());
+    
+	for(PollStat i : da.getStatList()) {
+
 	
-for(PollStat i : da.getStatList()) {
-	System.out.println(i.getQuestion());
-	if(i.getQuestion().equalsIgnoreCase("What is your favourite Sport?")) {
+	if(i.getQuestion().equalsIgnoreCase(Qs[0])&&i.getVotes1()==1) {
+		
+		vote1+=1;
+    
+		
+		model.addAttribute("qqq",Qs[0]);
 	
-     System.out.println(i.getVotes1());}
-	else System.out.println("No the sports question");
+		model.addAttribute("pollStat",pollStat);
+		
+       
+     
+	}else if(i.getQuestion().equalsIgnoreCase(Qs[0])&&i.getVotes2()==1) {
+    
 
+		vote2+=1;
+        System.out.println("V2 "+vote2);}
+	
+	    else if(i.getQuestion().equalsIgnoreCase(Qs[0])&&i.getVotes3()==1) {
+	
+	    vote3+=1;
+		System.out.println("V3 "+vote3);
 
-
-
-
-
+   
+			
+	}
 
 
 }
 	
-	
+
 	
 	
 	return "results";
@@ -139,52 +172,6 @@ for(PollStat i : da.getStatList()) {
 	
 	
 }
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	

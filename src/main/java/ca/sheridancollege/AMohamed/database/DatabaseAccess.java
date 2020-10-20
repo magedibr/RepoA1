@@ -39,7 +39,7 @@ public class DatabaseAccess {
 			
 			if(rowsAffected==1)
 			System.out.println(rowsAffected);
-			else System.out.println("1 added");
+			else System.out.println("");
         
 		}
 		else if(vote2==1) {
@@ -58,7 +58,7 @@ public class DatabaseAccess {
 			
 			if(rowsAffected==1)
 			System.out.println(rowsAffected);
-			else System.out.println("1 added");
+			else System.out.println("");
         
 		} else {
 			
@@ -75,29 +75,10 @@ public class DatabaseAccess {
 			
 			if(rowsAffected!=1)
 			System.out.println(rowsAffected);
-			else System.out.println("1 not added");	
+			else System.out.println("");	
 					}
 				}
 
-	
-	public void getCount(PollStat pollstat) {
-		
-		
-		//To use for parameter
-				MapSqlParameterSource namedParameters = new MapSqlParameterSource();
-				
-				String query = "SELECT COUNT(VOTES1) FROM POLLSTAT";
-		      
-				namedParameters.addValue("vote",query);
-				
-				jdbc.update(query, namedParameters);
-		
-		
-		
-		
-	}
-	
-	
 	
 	
 	
