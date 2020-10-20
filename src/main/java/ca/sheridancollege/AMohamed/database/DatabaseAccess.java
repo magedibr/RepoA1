@@ -31,10 +31,7 @@ public class DatabaseAccess {
 			namedParameters.addValue("vote3",0);
 			namedParameters.addValue("pollStat", pollstat);
 			
-			
-			
-			
-			
+		
 			int rowsAffected = jdbc.update(query,namedParameters );
 			
 			if(rowsAffected==1)
@@ -80,10 +77,6 @@ public class DatabaseAccess {
 				}
 
 	
-	
-	
-	
-	
 	public List<PollStat> getStatList(){
 		
 		//To use for parameter
@@ -93,8 +86,6 @@ public class DatabaseAccess {
 		
 		//Converts the rows that are fetched from the student to student objects so that can they be shown on the html. 
 		return jdbc.query(query, namedParameters, new BeanPropertyRowMapper<PollStat>(PollStat.class));
-		
-		
 		
 		
 	}

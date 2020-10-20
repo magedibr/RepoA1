@@ -1,7 +1,11 @@
 package ca.sheridancollege.AMohamed.controllers;
 
+import java.sql.Date;
+import java.time.LocalTime;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
+
+import org.apache.tomcat.jni.Time;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,7 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import ca.sheridancollege.AMohamed.bean.PollStat;
 import ca.sheridancollege.AMohamed.database.DatabaseAccess;
-
+/////////////////////////SQL///////////////////////////////
 @Controller
 public class PollStatController {
 	@Autowired
@@ -89,30 +93,91 @@ public class PollStatController {
 			if(ColAns.equalsIgnoreCase("Blue")) {da.insertV(0, 0, 1,"What is your favourite Color?",pollStat);} 	
 
 		}
-		 pollStat.setQuestion("trial"); 
-     //    model.addAttribute("pollStat",pollStat);
+		 
+  
 		 String[] Qs ={"What is your favourite Candy?","What is your favourite Sport?","What is your favourite Color?"};   
-         int vote1=0;
+        
+		 int CandyVote1=0,CandyVote2=0,CandyVote3=0;
+         int SportVote1=0,SportVote2=0,SportVote3=0;
+         int ColorVote1=0,ColorVote2=0,ColorVote3=0;
+         
          
 		      for(PollStat i : da.getStatList()) {
-
-				
+                 
+		    	  ////////////////////////Get Votes for Candy////////////////////
+		    	  
 				if(i.getQuestion().equalsIgnoreCase(Qs[0])&&i.getVotes1()==1) {
 					
+			       //model.addAttribute("pollStat",new PollStat());	
+				    pollStat.setVotes1(++CandyVote1);
+				    pollStat.setQuestion(Qs[0]);
+				
 					
+				    
+				    
+				    pollStat.setWhen(java.time.LocalDate.now());
+					
+					
+				}else if(i.getQuestion().equalsIgnoreCase(Qs[0])&&i.getVotes2()==1) {
+				
+				   	pollStat.setVotes2(++CandyVote2);
+			        pollStat.setQuestion(Qs[0]);
+			        pollStat.setWhen(java.time.LocalDate.now());
+			        
+				}else if(i.getQuestion().equalsIgnoreCase(Qs[0])&&i.getVotes3()==1) {
+					  
+					pollStat.setVotes3(++CandyVote3);
+		            pollStat.setQuestion(Qs[0]);
+		            pollStat.setWhen(java.time.LocalDate.now()); 
+		        
+		            ////////////////Get Votes for sports //////////////////////////
+		            
+				}else if(i.getQuestion().equalsIgnoreCase(Qs[1])&&i.getVotes1()==1) {
+					
+					
+				    pollStat.setVotes1(++SportVote1);
+				    pollStat.setQuestion(Qs[1]);
+				    pollStat.setWhen(java.time.LocalDate.now());	
+				
+				    
 			    
+				}else if(i.getQuestion().equalsIgnoreCase(Qs[1])&&i.getVotes2()==1) {
+				
+				   	pollStat.setVotes2(++SportVote2);
+			        pollStat.setQuestion(Qs[1]);
+			        pollStat.setWhen(java.time.LocalDate.now());
+			        
+				}else if(i.getQuestion().equalsIgnoreCase(Qs[1])&&i.getVotes3()==1) {
+					  
+					pollStat.setVotes3(++SportVote3);
+		            pollStat.setQuestion(Qs[1]);
+		            pollStat.setWhen(java.time.LocalDate.now());
+				///////////////////////////Color Votes////////////////////////////
+				
+				}else if(i.getQuestion().equalsIgnoreCase(Qs[2])&&i.getVotes1()==1) {
 					
-				    pollStat.setVote(++vote1);
-				    pollStat.setQuestion("Sdad");
-					//model.addAttribute("pollStat",pollStat);
 					
-				}
-			     
-				}
+				    pollStat.setVotes1(++ColorVote1);
+				    pollStat.setQuestion(Qs[2]);
+					
+				    pollStat.setWhen(java.time.LocalDate.now());
+				}else if(i.getQuestion().equalsIgnoreCase(Qs[2])&&i.getVotes2()==1) {
+				
+				   	pollStat.setVotes2(++ColorVote2);
+			        pollStat.setQuestion(Qs[2]);
+			        pollStat.setWhen(java.time.LocalDate.now());
+				}else if(i.getQuestion().equalsIgnoreCase(Qs[2])&&i.getVotes3()==1) {
+					  
+					pollStat.setVotes3(++ColorVote3);
+		            pollStat.setQuestion(Qs[2]);}
+				
+				pollStat.setWhen(java.time.LocalDate.now());
+		      
+		      
+		      
+		      }
          
-         
-         
-         
+				
  	
 		
 	

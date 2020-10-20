@@ -10,16 +10,114 @@
 
 
 <br><br><br>
+<div th:object="${pollStat}" th:if="${pollStat.question} == 'What is your favourite Candy?'">
 
-<div th:if="${pollList != null AND pollList != ''}">
+
+Question : <p th:text="*{question}"></p>	
 
 
-you chose: <div th:text="${pollStat.vote}"></div>
-<div th:text="${pollStat.question}"></div>
+Answer 1: Chocolate 
+<br>
+Answer 2: Taffy 
+<br>
+Answer 3: Carmel 
+
+
 <br>
 
 
+Votes1: <p th:text="*{votes1}"></p>
+
+Votes2: <p th:text="*{votes2}"></p>
+
+Votes3: <p th:text="*{votes3}"></p>
+
+
+Chocolate:
+<br>
+Taffy:
+<br>
+Carmel:
+<br>
+
+Time: <p th:text="*{when}"></p>
+
+
+<a th:href="@{/}">Home </a>
+
 </div>
+<!-----------------------Candy ends ---------------------------------->
+
+
+<div th:object="${pollStat}"   th:if="${pollStat.question}== 'What is your favourite Sport?'">
+
+
+Question : <p th:text="*{question}"></p>	
+
+Answer 1: Football
+<br>
+Answer 2: Basketball
+<br>
+Answer 3: Tennis
+
+
+Votes1: <p th:text="*{votes1}"></p>
+
+Votes2: <p th:text="*{votes2}"></p>
+
+Votes3: <p th:text="*{votes3}"></p>
+
+
+
+
+Football:
+<br>
+Basketball:
+<br>
+Tennis:
+
+
+Time: <p th:text="*{when}"></p>
+
+<a th:href="@{/}">Home</a>
+</div>
+
+<!------------------------------------ Sport ends -------------------------------------->
+
+<div th:object="${pollStat}"   th:if="${pollStat.question}== 'What is your favourite Color?'">
+
+
+Question : <p th:text="*{question}"></p>
+
+
+Answer 1: Red
+
+Answer 2: Green
+
+Answer 3: Blue
+	
+<br>
+Votes1: <p th:text="*{votes1}"></p>
+
+Votes2: <p th:text="*{votes2}"></p>
+
+Votes3: <p th:text="*{votes3}"></p>
+<br>
+
+
+
+Time: <p th:text="*{when}"></p>
+
+<a th:href="@{/}">Home</a>
+</div>
+
+
+
+
+
+
+
+
 
 </body>
 </html>
