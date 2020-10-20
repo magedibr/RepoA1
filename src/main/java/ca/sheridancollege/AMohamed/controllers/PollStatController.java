@@ -69,7 +69,7 @@ public class PollStatController {
 
 			if(CandyAns.equalsIgnoreCase("Chocolate")) {
 			
-			   	da.insertV(1, 0, 0,"Fav cands",pollStat);
+			   	da.insertV(1, 0, 0,"What is your favourite Candy?",pollStat);
 			
 			//    pollList.add(pollStat);
                  model.addAttribute("pollList",da.getStatList());
@@ -79,9 +79,9 @@ public class PollStatController {
 			
 			
 			
-			if(CandyAns.equalsIgnoreCase("Taffy"))     {da.insertV(0,1,0,"Fav cands",pollStat);
+			if(CandyAns.equalsIgnoreCase("Taffy"))     {da.insertV(0,1,0,"What is your favourite Candy?",pollStat);
 														} 	
-			if(CandyAns.equalsIgnoreCase("Carmel"))    {da.insertV(0, 0, 1,"Fav candss",pollStat);} 
+			if(CandyAns.equalsIgnoreCase("Carmel"))    {da.insertV(0, 0, 1,"What is your favourite Candy?",pollStat);} 
 					
 		//	pollList.add(pollStat);
 		}else if(pollStat.getSport()!= null) {
@@ -89,17 +89,17 @@ public class PollStatController {
 			String SportAns = pollStat.getSport();
 
 
-			if(SportAns.equalsIgnoreCase("Football")) { da.insertV(1, 0, 0,"Fav sport",pollStat);} 
-			if(SportAns.equalsIgnoreCase("Basketball")) {da.insertV(0,1,0,"Fav sport",pollStat);} 	
-			if(SportAns.equalsIgnoreCase("Tennis")) {da.insertV(0, 0, 1,"Fav sport",pollStat);} 
+			if(SportAns.equalsIgnoreCase("Football")) { da.insertV(1, 0, 0,"What is your favourite Sport?",pollStat);} 
+			if(SportAns.equalsIgnoreCase("Basketball")) {da.insertV(0,1,0,"What is your favourite Sport?",pollStat);} 	
+			if(SportAns.equalsIgnoreCase("Tennis")) {da.insertV(0, 0, 1,"What is your favourite Sport?",pollStat);} 
 
 		} else if(pollStat.getColor()!= null) {
 
 			String ColAns = pollStat.getColor();
 
-			if(ColAns.equalsIgnoreCase("Red")) { da.insertV(1, 0, 0,"Favourite Color",pollStat);} 
-			if(ColAns.equalsIgnoreCase("Green"))     {da.insertV(0,1,0,"Favourite Color",pollStat);} 	
-			if(ColAns.equalsIgnoreCase("Blue")) {da.insertV(0, 0, 1,"Favourite Color",pollStat);} 	
+			if(ColAns.equalsIgnoreCase("Red")) { da.insertV(1, 0, 0,"What is your favourite Color?",pollStat);} 
+			if(ColAns.equalsIgnoreCase("Green"))     {da.insertV(0,1,0,"What is your favourite Color?",pollStat);} 	
+			if(ColAns.equalsIgnoreCase("Blue")) {da.insertV(0, 0, 1,"What is your favourite Color?",pollStat);} 	
 
 		}else System.out.println("Non were chosen");
 
@@ -114,6 +114,24 @@ public class PollStatController {
 public String result(Model model,@ModelAttribute PollStat pollStat) {
 	
 	model.addAttribute("pollList",da.getStatList());
+	
+for(PollStat i : da.getStatList()) {
+	System.out.println(i.getQuestion());
+	if(i.getQuestion().equalsIgnoreCase("What is your favourite Sport?")) {
+	
+     System.out.println(i.getVotes1());}
+	else System.out.println("No the sports question");
+
+
+
+
+
+
+
+
+}
+	
+	
 	
 	
 	return "results";

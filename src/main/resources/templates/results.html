@@ -11,15 +11,10 @@
 
 <br><br><br>
 
-<table th:if="${pollList != null AND pollList != ''}">
-<tr th:each="s: ${pollList}">
-<td th:text="${s.votes1}">
+<div th:if="${pollList != null AND pollList != ''}">
 
-</td>
 
-</tr>
-
-</table>
+</div>
 
 </body>
 </html>

@@ -78,6 +78,26 @@ public class DatabaseAccess {
 			else System.out.println("1 not added");	
 					}
 				}
+
+	
+	public void getCount(PollStat pollstat) {
+		
+		
+		//To use for parameter
+				MapSqlParameterSource namedParameters = new MapSqlParameterSource();
+				
+				String query = "SELECT COUNT(VOTES1) FROM POLLSTAT";
+		      
+				namedParameters.addValue("vote",query);
+				
+				jdbc.update(query, namedParameters);
+		
+		
+		
+		
+	}
+	
+	
 	
 	
 	
@@ -88,7 +108,7 @@ public class DatabaseAccess {
 		//To use for parameter
 		MapSqlParameterSource namedParameters = new MapSqlParameterSource();
 		
-		String query = "SELECT COUNT(VOTES1) FROM POLLSTAT";
+		String query = "SELECT *  FROM POLLSTAT";
 		
 		//Converts the rows that are fetched from the student to student objects so that can they be shown on the html. 
 		return jdbc.query(query, namedParameters, new BeanPropertyRowMapper<PollStat>(PollStat.class));

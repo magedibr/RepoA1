@@ -36,7 +36,7 @@ public class PollStat implements Serializable {
     private String candy;	
     private String sport;
     private String color;
-
+private int vote;
 
 
 
